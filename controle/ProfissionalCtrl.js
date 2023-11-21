@@ -1,4 +1,4 @@
-import Profissional from "./modelo/profissional.js";
+import Profissional from "../modelo/profissional.js";
 
 export default class ProfissionalCtrl {
     
@@ -51,7 +51,7 @@ export default class ProfissionalCtrl {
     }
 
     // Método PUT OU PATCH do HTTP
-    atulizar(requisicao, resposta){
+    atualizar(requisicao, resposta){
         resposta.type('aplication/json'); // responder no formato JSON
         
         if (requisicao.method === 'PUT' || requisicao.method === "PATCH"){

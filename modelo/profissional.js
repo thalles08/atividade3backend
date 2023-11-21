@@ -1,6 +1,6 @@
 import ProfissionalDAO from "../persistencia/profissionalDAO.js";
 
-export default class Profissisonal {
+export default class Profissional {
 
     #id
     #cpf

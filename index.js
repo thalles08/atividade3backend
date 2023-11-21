@@ -1,47 +1,15 @@
-import Profissisonal from "./modelo/profissional.js";
+import express from "express";
+import rotaProfissional from "./rotas/rotaProfissional.js";
 
-const profissional = new Profissisonal(0, 
-                                        "555.555.555-55", 
-                                        "Ana Souza", 
-                                        "15.08.1990", 
-                                        "ana@email.com", 
-                                        "31 9 8888-5547", 
-                                        "55.555-555", 
-                                        "Rua Vinte de maio", 
-                                        "45 - apto 02", 
-                                        "Outono", 
-                                        "São Paulo"
-                                        );
+const host = "0.0.0.0";
+const porta = 4000;
 
+const app = express();
 
-/*
-profissional.gravar().then(() => {
-    console.log("Profissional gravado com sucesso!");
-}).catch((erro) => {
-    console.log(`Não foi possível gravar o profissional: ${erro.message}.`);
-});
-*/
+app.use(express.json());
 
-/*
-profissional.atualizar().then(() => {
-    console.log("Profissional atualizado com sucesso!");
-}).catch((erro) => {
-    console.log(`Não foi possível atualizar o profissional: ${erro.message}.`);
-});
-*/
+app.use('/profissional', rotaProfissional);
 
-/*
-profissional.excluir().then(() => {
-    console.log("Profissional excluído com sucesso!");
-}).catch((erro) => {
-    console.log(`Não foi possível excluir o profissional: ${erro.message}.`);
-});
-*/
-
-profissional.consultar().then((listaProfissionais) => {
-    for (const profissional of listaProfissionais) {
-        console.log(profissional.toJason());
-    }
-}).catch((erro) => {
-    console.log(`Não foi possível consultar o profissional: ${erro.message}.`);
+app.listen(porta, host, () => {
+    console.log(`Servidor esperando por requisições em http://${host}:${porta}`)
 });
