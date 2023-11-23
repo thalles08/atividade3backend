@@ -118,7 +118,7 @@ export default class Profissional {
         this.#cidade = novaCidade;
     }
 
-    toJason() {
+    toJSON() {
         return {
             id: this.id,
             cpf: this.#cpf,
